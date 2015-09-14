@@ -5,13 +5,13 @@
 # beta: teleport probability parameter
 # epsilon: a range to check whether r has converged
 
-M = [0, 0, 0; 1, 0, 0; 1, 1, 1];
+M = [0, 0, 0; 0.5, 0, 0; 0.5, 1, 1];
 N = rows(M);
 rSum = 3;
-beta = 0.7;
+beta = 0.85;
 const = ones(N, 1) * ((1 - beta) / N);
 
-r = ones(N, 1) * rSum / N;
+r = ones(N, 1) * 1 / N;
 
 epsilon = 0.000000001;
 
