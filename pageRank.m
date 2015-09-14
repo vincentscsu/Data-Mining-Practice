@@ -8,7 +8,7 @@
 M = [0, 0, 0; 0.5, 0, 0; 0.5, 1, 1];
 N = rows(M);
 rSum = 3;
-beta = 0.85;
+beta = 0.7;
 const = ones(N, 1) * ((1 - beta) / N);
 
 r = ones(N, 1) * 1 / N;
