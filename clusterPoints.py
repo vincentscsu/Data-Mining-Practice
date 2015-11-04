@@ -1,3 +1,8 @@
+"""
+Clustering a group of points using k-means.
+This program was desigend to run only 2 iterations to answer a question.
+"""
+
 from math import sqrt
 class Point(object):
 	"""
@@ -33,7 +38,7 @@ points.append(Point(50,30))
 points.append(Point(33,22))
 points.append(Point(55,20))
 
-centroids = [Point(25,125),Point(44,105),Point(29,97),Point(35,63),Point(55,63),Point(42,97),Point(23,40),Point(64,37),Point(33,22),Point(55,20)]
+centroids = [Point(25,125),Point(44,105),Point(29,97),Point(35,63),Point(55,63),Point(42,57),Point(23,40),Point(64,37),Point(33,22),Point(55,20)]
 
 def dist(a,b):
 	"""
@@ -48,10 +53,10 @@ for point in points:
 		if dist(point, centroid) < d:
 			point.clusterCentroid = centroid
 			d = dist(point, centroid)
-print [point.getCoordinates() for point in points]
-print [point.clusterCentroid.getCoordinates() for point in points]
-print
-print [centroid.getCoordinates() for centroid in centroids]
+# print [point.getCoordinates() for point in points]
+# print [point.clusterCentroid.getCoordinates() for point in points]
+# print
+# print [centroid.getCoordinates() for centroid in centroids]
 
 # construct clusters and calculate new centroids
 clusters = {}
@@ -60,6 +65,10 @@ for point in points:
 		clusters[point.clusterCentroid.getCoordinates()].append(point.getCoordinates())
 	else:
 		clusters[point.clusterCentroid.getCoordinates()] = [point.getCoordinates()]
+
+# print 'clusters:'
+# print
+# print clusters
 
 centroidsNew = []
 for cluster, members in clusters.items():
@@ -73,8 +82,8 @@ for point in points:
 		if dist(point, centroid) < d:
 			point.clusterCentroid = centroid
 			d = dist(point, centroid)
-print
-print [point.getCoordinates() for point in points]
-print [point.clusterCentroid.getCoordinates() for point in points]
-print
+# print
+# print [point.getCoordinates() for point in points]
+# print [point.clusterCentroid.getCoordinates() for point in points]
+# print
 print [centroid.getCoordinates() for centroid in centroidsNew]
